@@ -1,98 +1,98 @@
 /* -----導覽列----- */
- nav.navBarbackcolor {
-     background-color: transparent;
-     transition: background-color 1.5s ease;
-     backdrop-filter: blur(1px);
- }
+nav.navBarbackcolor {
+    background-color: transparent;
+    transition: background-color 1.5s ease;
+    backdrop-filter: blur(1px);
+}
 
- nav.navbar.scrolled {
-     background-color: rgba(35, 55, 62, 0.95);
-     transition: background-color 1.5s ease;
- }
+nav.navbar.scrolled {
+    background-color: rgba(35, 55, 62, 0.95);
+    transition: background-color 1.5s ease;
+}
 
- a.navbar-brand {
-     font-size: 35px;
-     font-family: "Noto Serif TC", sans-serif;
-     align-items: center;
-     display: flex;
-     transition: transform 0.3s;
- }
+a.navbar-brand {
+    font-size: 35px;
+    font-family: "Noto Serif TC", sans-serif;
+    align-items: center;
+    display: flex;
+    transition: transform 0.3s;
+}
 
- .weblogo {
-     object-fit: contain;
-     width: 120px;
-     max-height: 100px;
-     transition: transform 0.3s;
- }
+.weblogo {
+    object-fit: contain;
+    width: 120px;
+    max-height: 100px;
+    transition: transform 0.3s;
+}
 
- .weblogo:hover {
-     transform: scale(1.05);
- }
+.weblogo:hover {
+    transform: scale(1.05);
+}
 
- a.navbar-brand:hover {
-     transform: scale(1.05);
- }
-
-
- /* -----漢堡----- */
- .navbar-toggler:focus {
-     border-radius: 10px;
-     box-shadow: none;
-     border: 1px solid #ebe0cc;
- }
-
- ul.navBar {
-     list-style: none;
-     margin: 0;
-     padding: 0;
- }
-
- ul.navBar li {
-     display: inline-block;
-     color: white;
-     font-size: 18px;
-     font-family: "Noto Serif TC", sans-serif;
- }
-
- ul.navBar li a:hover {
-     background-color: rgba(255, 255, 255, 0.1);
-     cursor: pointer;
- }
-
- ul.navBar li a {
-     color: white;
-     text-align: center;
-     text-decoration: none;
-     display: block;
-     padding: 20px;
- }
+a.navbar-brand:hover {
+    transform: scale(1.05);
+}
 
 
+/* -----漢堡----- */
+.navbar-toggler:focus {
+    border-radius: 10px;
+    box-shadow: none;
+    border: 1px solid #ebe0cc;
+}
 
- /* --- RWD 手機版微調 --- */
- @media (max-width: 991px) {
+ul.navBar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-     /* 1. 設定下拉選單外觀 */
-     .navbar-collapse {
-         background-color: rgba(35, 55, 62, 0.5);
-         padding: 10px;
-         border-radius: 5px;
-     }
+ul.navBar li {
+    display: inline-block;
+    color: white;
+    font-size: 18px;
+    font-family: "Noto Serif TC", sans-serif;
+}
 
-     /* 2. 讓選項變成直排 (block) */
-     ul.navBar li {
-         display: block;
-         width: 100%;
-         text-align: center;
-         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-     }
+ul.navBar li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
 
-     /* 3. 調整連結點擊範圍 */
-     ul.navBar li a {
-         padding: 10px 0;
-     }
+ul.navBar li a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    padding: 20px;
+}
 
- }
+
+
+/* --- RWD 手機版微調 --- */
+@media (max-width: 991px) {
+
+    /* 1. 設定下拉選單外觀 */
+    .navbar-collapse {
+        background-color: rgba(35, 55, 62, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    /* 2. 讓選項變成直排 (block) */
+    ul.navBar li {
+        display: block;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* 3. 調整連結點擊範圍 */
+    ul.navBar li a {
+        padding: 10px 0;
+    }
+
+}
 
 
 /*-----背景封面-----*/
@@ -215,7 +215,8 @@ html {
     color: #C5A059;
     font-size: 0.9rem;
     padding: 15px 30px;
-    white-space: nowrap; /* 防止文字換行 */
+    white-space: nowrap;
+    /* 防止文字換行 */
     transition: all 0.3s ease;
 }
 
@@ -284,6 +285,58 @@ html {
 
 
 
+@media (max-width: 768px) {
+
+    /* --- 問題二：圖片跟文字改為「上下」排列 --- */
+    /* 使用跟原本一樣強的選擇器，寫在後面就能覆蓋，免用 !important */
+    #memory-content .row,
+    #major-content .row {
+        display: flex;
+        flex-direction: column;
+        /* 直向排列 */
+        gap: 0;
+        /* 清除不必要的間距，讓它自然排列 */
+    }
+
+    /* 讓圖片與文字區塊寬度都佔滿 100% */
+    #memory-content .col-lg-6,
+    #major-content .col-lg-6 {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 12px;
+        /* 稍微留點呼吸空間 */
+        padding-left: 12px;
+    }
+
+    /* --- 問題三：文字疊在一起 (解決高度不夠) --- */
+    /* 針對金條文字框 */
+    .activity-info .fw-bold {
+        height: auto;
+        /* 關鍵：高度自動，隨文字變長 */
+        min-height: auto;
+        /* 清除最小高度限制 */
+
+        margin-top: 15px;
+        /* 與上方圖片拉開距離 */
+        margin-bottom: 20px;
+        /* 與下方按鈕拉開距離 */
+        padding: 20px;
+        /* 內距 */
+
+        /* 避免文字超出畫面 */
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 調整標題大小，避免手機版標題也爆掉 */
+    #news-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+}
+
+
+
 
 
 
@@ -296,12 +349,12 @@ html {
 }
 
 #memory-content {
-    align-items:center;
+    align-items: center;
     margin: 0 auto;
     justify-content: center;
 }
 
-.event-card-wrapper{
+.event-card-wrapper {
     min-height: 280px;
     height: 100%;
 }
@@ -339,61 +392,61 @@ html {
 
 /* -----底部聯絡資訊----- */
 .main-footer {
-     background-color: rgba(35, 55, 62, 0.95);
-     color: #bbb;
-     font-size: 1.2rem;
- }
+    background-color: rgba(35, 55, 62, 0.95);
+    color: #bbb;
+    font-size: 1.2rem;
+}
 
- .footer-logo {
-     width: 220px;
-     height: auto;
-     transition: transform 0.3s;
- }
+.footer-logo {
+    width: 220px;
+    height: auto;
+    transition: transform 0.3s;
+}
 
- .footer-logo:hover {
-     transform: scale(1.05);
- }
+.footer-logo:hover {
+    transform: scale(1.05);
+}
 
- /* ----- 中間：社群 Icon 設定 ----- */
- .social-icons-group {
-     display: flex;
-     justify-content: center;
-     gap: 25px;
- }
+/* ----- 中間：社群 Icon 設定 ----- */
+.social-icons-group {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
 
- .social-icons-group a {
-     color: #bbb;
-     text-decoration: none;
- }
+.social-icons-group a {
+    color: #bbb;
+    text-decoration: none;
+}
 
- .social-icons-group i {
-     font-size: 1.5rem;
-     transition: all 0.3s ease;
- }
+.social-icons-group i {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
 
- .social-icons-group a:hover i {
-     color: #e8c687;
- }
+.social-icons-group a:hover i {
+    color: #e8c687;
+}
 
- /* --- 右邊：聯絡我們文字設定 --- */
- .footer-contact-list li {
-     font-size: 1rem;
-     color: #ccc;
-     line-height: 1.8;
- }
+/* --- 右邊：聯絡我們文字設定 --- */
+.footer-contact-list li {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.8;
+}
 
- /* 手機版適應 (當螢幕變窄時) */
- @media (max-width: 768px) {
-     .footer-logo {
-         width: 160px;
-         /* 手機版 Logo 稍微縮小一點以免太擠 */
-     }
+/* 手機版適應 (當螢幕變窄時) */
+@media (max-width: 768px) {
+    .footer-logo {
+        width: 160px;
+        /* 手機版 Logo 稍微縮小一點以免太擠 */
+    }
 
-     /* 在手機版讓聯絡資訊置中，而不是靠右 */
-     .text-md-end {
-         text-align: center !important;
-     }
- }
+    /* 在手機版讓聯絡資訊置中，而不是靠右 */
+    .text-md-end {
+        text-align: center !important;
+    }
+}
 
 .footer-warning {
     background-color: #000;
@@ -405,23 +458,23 @@ html {
 
 
 /* 至頂箭頭 */
- #myBtn {
-     display: none;
-     /*負責第0秒隱藏 開始滾動就變成JS的判斷式*/
-     position: fixed;
-     bottom: 80px;
-     right: 30px;
-     z-index: 99;
-     border: none;
-     background-color: rgba(35, 55, 62, 0.95);
-     color: #ebe0cc;
-     padding: 15px;
-     border-radius: 10px;
-     font-size: 18px;
- }
+#myBtn {
+    display: none;
+    /*負責第0秒隱藏 開始滾動就變成JS的判斷式*/
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    background-color: rgba(35, 55, 62, 0.95);
+    color: #ebe0cc;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
 
- #myBtn:hover {
-     background-color: #555;
-     cursor: pointer;
-     transform: scale(1.1);
- }
+#myBtn:hover {
+    background-color: #555;
+    cursor: pointer;
+    transform: scale(1.1);
+}
