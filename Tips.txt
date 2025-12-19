@@ -11,7 +11,7 @@ CSS/BS
  -> z-index: 1000+：全螢幕的蓋板廣告、彈出視窗（Modal）、警告訊息。
 8.object-fit: contain 包含完整的圖 但尺寸不合易有留白
 9.ransition: transform 0.3s; 平滑過度 0.3秒浮出來
-10.transform: scale(1.05 ); 放大5%
+10.transform: scale(1.05 ); 放大5% block元素才能用
 
 
 11.display: block; 變成區塊才可控padding/margin
@@ -41,6 +41,11 @@ CSS/BS
   -> 前者 通常在襖覽列
   -> 後者 通常在次級內容上
 30.scroll-margin-top
+
+
+31.CTA(Call To Action) 行動呼籲
+32.添加裝飾的線記得 position: absolute 才有用
+33.transform: translate(-50%, -50%);
 
 
 
