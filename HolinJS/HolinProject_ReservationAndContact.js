@@ -11,6 +11,8 @@ window.addEventListener('scroll', function () {
 
 
 // GoogleSheet:https://docs.google.com/spreadsheets/d/1dsH6dm14FNQr_Zunbb4hzCurRJinKivTUIWZjyyvI6Q/edit?gid=0#gid=0
+// 已發布 https://docs.google.com/spreadsheets/d/e/2PACX-1vTR3ZPMfAzyzkaPrx-MCucDjc40KOmddFCuuzTNQqujzHhUHaIiHe2hP5mpRwvS0KDHlaYGRLrmj-Z3/pubhtml
+
 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxX8_UoeL2xF_PmQ9NhMe9MnztmWInTl3KPzaPSZHJUFHdEbUP9xms_fMhqFBffgO-3ZA/exec';
 // 取得按鈕並監聽點擊事件
