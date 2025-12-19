@@ -35,6 +35,12 @@ CSS/BS
 24.text-muted 預設字體黑變灰(次要資訊)
 25.aspect-ratio 長寬比
 26.inset: 0; -> 上下左右邊距皆為0
+27.carousel-fade 讓輪播圖由淺入深
+28.navbar-expand-lg 大螢幕展開lg以下變漢堡選單
+29.fixed-top 跟 sticky-top差異
+  -> 前者 通常在襖覽列
+  -> 後者 通常在次級內容上
+30
 
 
 
@@ -69,7 +75,7 @@ JS-單執行序
 15.trim() 去掉前後空白
 16.fetch...await 拿...(資料)過來 要一起使用 
   -> 找資料期間的等待，下一行需要await，不然會跳過此行，直接執行再下一行
-17.
+17.defer 延遲執行 若要引用JS檔 葉面跑不出來 就記得加他
 
 
 

@@ -1,141 +1,99 @@
 /* -----導覽列----- */
-nav.navBarbackcolor {
-    background-color: transparent;
-    transition: background-color 1.5s ease;
-    backdrop-filter: blur(1px);
-}
+ nav.navBarbackcolor {
+     background-color: transparent;
+     transition: background-color 1.5s ease;
+     backdrop-filter: blur(1px);
+ }
 
-nav.navbar.scrolled {
-    background-color: rgba(35, 55, 62, 0.95);
-    transition: background-color 1.5s ease;
-}
+ nav.navbar.scrolled {
+     background-color: rgba(35, 55, 62, 0.95);
+     transition: background-color 1.5s ease;
+ }
 
-a.navbar-brand {
-    font-size: 35px;
-    font-family: "Noto Serif TC", sans-serif;
-    align-items: center;
-    display: flex;
-    transition: transform 0.3s;
-}
+ a.navbar-brand {
+     font-size: 35px;
+     font-family: "Noto Serif TC", sans-serif;
+     align-items: center;
+     display: flex;
+     transition: transform 0.3s;
+ }
 
-.weblogo {
-    object-fit: contain;
-    width: 120px;
-    max-height: 100px;
-    transition: transform 0.3s;
-}
+ .weblogo {
+     object-fit: contain;
+     width: 120px;
+     max-height: 100px;
+     transition: transform 0.3s;
+ }
 
-.weblogo:hover {
-    transform: scale(1.05);
-}
+ .weblogo:hover {
+     transform: scale(1.05);
+ }
 
-a.navbar-brand:hover {
-    transform: scale(1.05);
-}
+ a.navbar-brand:hover {
+     transform: scale(1.05);
+ }
 
-/* -----漢堡----- */
-.navbar-toggler:focus {
-    border-radius: 10;
-    box-shadow: none;
-    border: 1px solid #ebe0cc;
-}
 
-ul.navBar {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+ /* -----漢堡----- */
+ .navbar-toggler:focus {
+     border-radius: 10px;
+     box-shadow: none;
+     border: 1px solid #ebe0cc;
+ }
 
-ul.navBar li {
-    display: inline-block;
-    color: white;
-    font-size: 18px;
-    font-family: "Noto Serif TC", sans-serif;
-}
+ ul.navBar {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+ }
 
-ul.navBar li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-}
+ ul.navBar li {
+     display: inline-block;
+     color: white;
+     font-size: 18px;
+     font-family: "Noto Serif TC", sans-serif;
+ }
 
-ul.navBar li a {
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    padding: 20px;
-}
+ ul.navBar li a:hover {
+     background-color: rgba(255, 255, 255, 0.1);
+     cursor: pointer;
+ }
 
-.social-gap {
-    margin-left: 25px;
-}
+ ul.navBar li a {
+     color: white;
+     text-align: center;
+     text-decoration: none;
+     display: block;
+     padding: 20px;
+ }
 
-/*-----登入按鈕-----*/
-.btn-login {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 
-    color: whitesmoke;
-    border: 1px solid whitesmoke;
-    font-family: "Noto Serif TC", sans-serif;
 
-    padding: 7px 20px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 15px;
-    white-space: nowrap;
-}
+ /* --- RWD 手機版微調 --- */
+ @media (max-width: 991px) {
 
-/* 滑鼠移上去的效果 (Hover) */
-.navbar .btn-login:hover {
-    background-color: #C5A059;
-    color: #23373E;
-    box-shadow: 0 0 10px rgba(197, 160, 89, 0.6);
-    transform: translateY(-2px);
-}
+     /* 1. 設定下拉選單外觀 */
+     .navbar-collapse {
+         background-color: rgba(35, 55, 62, 0.5);
+         padding: 10px;
+         border-radius: 5px;
+     }
 
-/* --- RWD 手機版微調 --- */
-@media (max-width: 991px) {
+     /* 2. 讓選項變成直排 (block) */
+     ul.navBar li {
+         display: block;
+         width: 100%;
+         text-align: center;
+         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+     }
 
-    /* 1. 設定下拉選單外觀 */
-    .navbar-collapse {
-        background-color: rgba(35, 55, 62, 0.5);
-        padding: 10px;
-        border-radius: 5px;
-    }
+     /* 3. 調整連結點擊範圍 */
+     ul.navBar li a {
+         padding: 10px 0;
+     }
 
-    /* 2. 讓選項變成直排 (block) */
-    ul.navBar li {
-        display: block;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+ }
 
-    /* 4. 調整連結點擊範圍 */
-    ul.navBar li a {
-        padding: 10px 0;
-    }
-
-    /* 5. 登入按鈕置中 */
-    .navbar-collapse .d-flex {
-        border: 0px solid transparent;
-        justify-content: center;
-        margin-top: 10px;
-    }
-
-    .social-gap {
-        margin-left: 0;
-        padding-bottom: 10px;
-    }
-
-    /* 6. 按鈕寬度 */
-    .btn-login {
-        width: 30%;
-        text-align: center;
-    }
-}
 
 /*-----背景封面-----*/
 body,
@@ -143,9 +101,9 @@ html {
     height: 70%;
 }
 
-/* * {
+* {
     box-sizing: border-box;
-} */
+}
 
 
 .bg-image {
@@ -447,14 +405,14 @@ html {
 
 
 /* 至頂箭頭 */
-#myBtn {
+ #myBtn {
      display: none;
+     /*負責第0秒隱藏 開始滾動就變成JS的判斷式*/
      position: fixed;
      bottom: 80px;
      right: 30px;
      z-index: 99;
      border: none;
-     outline: none;
      background-color: rgba(35, 55, 62, 0.95);
      color: #ebe0cc;
      padding: 15px;

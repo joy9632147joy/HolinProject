@@ -8,12 +8,14 @@
     <title>HoLin53精釀餐館</title>
     <link rel="icon" href="./mainpageimg/Holin53_Logo.png">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="./Holincss/HolinProject.css">
+    <link rel="stylesheet" href="./HolinCss/HolinProject.css">
+    <script src="./HolinJS/HolinProject.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="js/bootstrap.bundle.js"></script>
 
     <!-- 設定繁體中文字體 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto Serif TC, sans-serif+XiaoWei&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto Serif TC, sans-serif+XiaoWei&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -108,7 +110,7 @@
 
         <div class="container position-relative" style="z-index: 2;">
             <div class="row align-items-center">
-                
+
 
                 <div class="col-lg-6 mb-5 mb-lg-1">
                     <div class="activity-img-wrapper">
@@ -172,7 +174,7 @@
                             alt="下酒菜">
                         <div class="card-body">
                             <h4 class="card-title fw-bold">經典小食</h4>
-                            <p class="card-text text-secondary">金黃酥脆的冰花煎餃是專為搭配精釀而生的靈魂伴侶。</p>
+                            <p class="card-text text-secondary">金黃酥脆的冰花煎餃為本店招牌。</p>
                             <a href="HolinProject menu.html" class="btn btn-sm btn-outline-dark mt-2">瀏覽菜單</a>
                         </div>
                     </div>
@@ -210,21 +212,21 @@
 
             <div class="row align-items-center justify-content-center g-5">
 
-                <div id="carouselExampleFade" class="carousel slide carousel-box col-lg-5" data-bs-ride="carousel">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade  col-lg-5" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="4500">
+                        <div class="carousel-item active" data-bs-interval="3000">
                             <img src="./mainpageimg/主頁女皇爵.jpg" class="img-fluid" style="border-radius: 5px;"
                                 alt="部落客推薦美食">
                         </div>
-                        <div class="carousel-item" data-bs-interval="4500">
+                        <div class="carousel-item" data-bs-interval="3000">
                             <img src="./mainpageimg/pizza.jpg" class="img-fluid" style="border-radius: 5px;"
                                 alt="部落客推薦美食">
                         </div>
-                        <div class="carousel-item" data-bs-interval="4500">
+                        <div class="carousel-item" data-bs-interval="3000">
                             <img src="./mainpageimg/beer3.jpg" class="img-fluid" style="border-radius: 5px;"
                                 alt="部落客推薦美食">
                         </div>
-                        <div class="carousel-item" data-bs-interval="4500">
+                        <div class="carousel-item" data-bs-interval="3000">
                             <img src="./mainpageimg/炸物.jpg" class="img-fluid" style="border-radius: 5px;" alt="部落客推薦美食">
                         </div>
                     </div>
@@ -259,9 +261,9 @@
 
                         <div class="d-flex align-items-center justify-content-center justify-content-lg-start gap-4"
                             style="font-family: 'Noto Serif TC'">
-                            <a href="https://bigsharkgogogo.tw/holin53/" target="_blank" class="btn btn-read-story">
+                            <button href="https://bigsharkgogogo.tw/holin53/" target="_blank" class="btn btn-outline-secondary">
                                 閱讀完整文章 <i class="bi bi-arrow-right ms-1"></i>
-                            </a>
+                            </button>
 
 
                         </div>
@@ -335,73 +337,6 @@
         禁止酒駕 🚫 未滿十八歲 禁止飲酒
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const modal = document.getElementById("age-modal");
-            const btnYes = document.getElementById("btn-yes");
-            const btnNo = document.getElementById("btn-no");
-
-            // 檢查是否已經驗證過 (用 localStorage)
-            if (localStorage.getItem("ageVerified") === "true") {
-                modal.style.display = "none";
-            }
-
-            // 點擊「是」
-            btnYes.addEventListener("click", function () {
-                localStorage.setItem("ageVerified", "true"); // 記住使用者已滿18歲
-                modal.style.opacity = "0";
-                setTimeout(() => {
-                    modal.style.display = "none";
-                }, 500); //500毫秒
-            });
-
-            // 點擊「否」
-            btnNo.addEventListener("click", function () {
-                alert("很抱歉，本網站內容僅供 18 歲以上人士瀏覽。");
-                window.location.href = "https://maps.app.goo.gl/YMkfuPDTutvSJMuFA"; // 或是導向其他地方
-            });
-        });
-    </script>
-
-
-
-    <script>
-        // 監聽網頁滾動事件
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 200) { 
-                navbar.classList.add('scrolled'); // 加上變數 class
-            } else {
-                navbar.classList.remove('scrolled'); // 變回透明
-            }
-        });
-    </script>
-
-    <script>
-        // 1. 抓取按鈕元素
-        let mybutton = document.getElementById("myBtn");
-
-        // 2. 監聽網頁捲動事件 (當網頁捲動時執行 scrollFunction)
-        window.onscroll = function () {
-            scrollFunction();
-        };
-
-        function scrollFunction() {
-            // 如果捲動超過 100px (document.body 是給 Safari 看的，documentElement 是給 Chrome/Firefox 看的)
-            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 600) {
-                mybutton.style.display = "block"; // 顯示按鈕
-            } else {
-                mybutton.style.display = "none";  // 隱藏按鈕
-            }
-        }
-
-        // 3. 監聽點擊事件 (點下去後回到頂端)
-        mybutton.addEventListener("click", backToTop);
-
-        function backToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
 
 </body>
 

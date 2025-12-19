@@ -8,7 +8,8 @@
     <title>HoLin53 | 關於我們</title>
     <link rel="icon" href="./mainpageimg/Holin53_Logo.png">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="./Holincss/HolinProject_About.css">
+    <link rel="stylesheet" href="./HolinCss/HolinProject_About.css">
+    <script src="./HolinJS/HolinProject_About.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="js/bootstrap.bundle.js"></script>
 
@@ -90,7 +91,7 @@
     <section class="py-1">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-8">
+                <div class="col-12 col-lg-10">
                     <div class="mb-5">
                         <div class="text-secondary" style="font-size: 1.1rem; line-height: 1.9;">
                             創立於 2024 年，座落於台中大雅中清北街 53 號。Holin53
@@ -175,7 +176,7 @@
 
 
                     <a href="https://www.uglyhalfbeer.com/" target="_blank" class="partner-item">
-                        <img src="./mainpageimg/酉鬼.jpg" alt="酉鬼精釀">
+                        <img src="./aboutimg/酉鬼.jpg" alt="酉鬼精釀">
                         <div class="partner-overlay">
                             <h5>酉鬼精釀</h5>
                             <span>Craft Beer Partner</span>
@@ -183,7 +184,7 @@
                     </a>
 
                     <a href="https://www.tsaisactualbrewing.net/" target="_blank" class="partner-item">
-                        <img src="./mainpageimg/蔡氏精釀.jpg" alt="蔡氏精釀">
+                        <img src="./aboutimg/蔡氏精釀.jpg" alt="蔡氏精釀">
                         <div class="partner-overlay">
                             <h5>蔡氏精釀</h5>
                             <span>Seasonal Brewing</span>
@@ -191,7 +192,7 @@
                     </a>
 
                     <a href="https://www.blackdrongo.beer/" target="_blank" class="partner-item">
-                        <img src="./mainpageimg/烏鶖.png" alt="烏鶖啤酒">
+                        <img src="./aboutimg/烏鶖.png" alt="烏鶖啤酒">
                         <div class="partner-overlay">
                             <h5>烏鶖啤酒</h5>
                             <span>Taiwan Craft Spirit</span>
@@ -199,7 +200,7 @@
                     </a>
 
                     <a href="https://hellowbrewery.com.tw/" target="_blank" class="partner-item">
-                        <img src="./mainpageimg/禾樂精釀.jpg" alt="禾樂精釀">
+                        <img src="./aboutimg/禾樂精釀.jpg" alt="禾樂精釀">
                         <div class="partner-overlay">
                             <h5>禾樂精釀</h5>
                             <span>Craft Beer Partner</span>
@@ -211,7 +212,7 @@
             <div class="col-12 d-flex justify-content-center gap-4 flex-wrap pb-5">
 
                 <a href="https://www.instagram.com/taimmortalbeer/" target="_blank" class="partner-item">
-                    <img src="./mainpageimg/不朽.jpg" alt="不朽精釀">
+                    <img src="./aboutimg/不朽.jpg" alt="不朽精釀">
                     <div class="partner-overlay">
                         <h5>不朽精釀</h5>
                         <span>Seasonal Brewing</span>
@@ -219,7 +220,7 @@
                 </a>
 
                 <a href="https://www.instagram.com/fukiraworks/" target="_blank" class="partner-item">
-                    <img src="./mainpageimg/福鵲.jpg" alt="福鵲">
+                    <img src="./aboutimg/福鵲.jpg" alt="福鵲">
                     <div class="partner-overlay">
                         <h5>福鵲製酒</h5>
                         <span>Craft Beer Partner</span>
@@ -227,12 +228,22 @@
                 </a>
 
                 <a href="https://www.instagram.com/55thstreetcraftbrewery/" target="_blank" class="partner-item">
-                    <img src="./mainpageimg/55.jpg" alt="五十五街精釀">
+                    <img src="./aboutimg/55.jpg" alt="五十五街精釀">
                     <div class="partner-overlay">
                         <h5>五十五街精釀</h5>
                         <span>Taiwan Craft Spirit</span>
                     </div>
                 </a>
+
+                <a href="https://www.taihubrewing.com/" target="_blank" class="partner-item">
+                    <img src="./aboutimg/台虎精釀.jpg" alt="台虎精釀">
+                    <div class="partner-overlay">
+                        <h5>台虎精釀</h5>
+                        <span>Taihu Brewing</span>
+                    </div>
+                </a>
+
+
 
             </div>
 
@@ -302,49 +313,6 @@
     <div class="footer-warning fixed-bottom text-center py-3 fw-bold">
         禁止酒駕 🚫 未滿十八歲 禁止飲酒
     </div>
-
-
-
-
-
-    <script>
-        // 監聽網頁滾動事件
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 200) {
-                navbar.classList.add('scrolled'); // 加上變數 class
-            } else {
-                navbar.classList.remove('scrolled'); // 變回透明
-            }
-        });
-    </script>
-
-    <script>
-        // 1. 抓取按鈕元素
-        let mybutton = document.getElementById("myBtn");
-
-        // 2. 監聽網頁捲動事件 (當網頁捲動時執行 scrollFunction)
-        window.onscroll = function () {
-            scrollFunction();
-        };
-
-        function scrollFunction() {
-            // 如果捲動超過 100px (document.body 是給 Safari 看的，documentElement 是給 Chrome/Firefox 看的)
-            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 600) {
-                mybutton.style.display = "block"; // 顯示按鈕
-            } else {
-                mybutton.style.display = "none";  // 隱藏按鈕
-            }
-        }
-
-        // 3. 監聽點擊事件 (點下去後回到頂端)
-        mybutton.addEventListener("click", backToTop);
-
-        function backToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-
 
 
 
