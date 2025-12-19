@@ -215,6 +215,25 @@
      padding: 20px 40px;
  }
 
+  .btn-more {
+     background: #C5A059;
+     color: #23373E;
+     position: relative;
+     z-index: 1;
+     font-family: "Noto Serif TC", sans-serif;
+     font-size: large;
+ }
+
+ .btn-more:hover {
+     transform: translateY(-5px);
+     color: #23373E;
+     background-color: #e8c687;
+ }
+ a:focus{
+    outline: none;
+ }
+
+ 
 
 
 
@@ -268,6 +287,7 @@
      position: relative;
      z-index: 1;
      transition: all 0.3s ease;
+     font-family: "Noto Serif TC", sans-serif;
  }
 
  .btn-gold-shine:hover {
