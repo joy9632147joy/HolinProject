@@ -53,7 +53,7 @@ const products = [
         volume: "355ml",
         abv: "6.5%",
         price: 280,
-        image: ".//productsImg//IMG_4617.jpg"
+        image: "./productsImg/IMG_4617.jpg"
     },
     {
         id: "n-6",
@@ -107,7 +107,7 @@ const products = [
         volume: "440ml",
         abv: "6.8%",
         price: 380,
-        image: ".//productsImg//IMG_4633.jpg"
+        image: "./productsImg/IMG_4633.jpg"
     },
     {
         id: "n-12",
