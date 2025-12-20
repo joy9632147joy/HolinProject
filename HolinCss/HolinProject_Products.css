@@ -187,6 +187,7 @@ html {
     .btn-custom {
         font-size: 0.85rem;
         padding: 8px 15px;
+        flex:0 0 100%;
     }
 
     .btn-group {
@@ -205,9 +206,10 @@ html {
 }
 
 
-.beertext[class^=btn] {
+.beertext[class^=btn-custom] {
     color: #C5A059;
-    font-family: "Noto Serif TC", sans-serif
+    font-family: "Noto Serif TC", sans-serif;
+
 }
 
 
