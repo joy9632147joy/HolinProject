@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 點擊「否」
     btnNo.addEventListener("click", function () {
-        alert("很抱歉，本網站內容僅供 18 歲以上人士瀏覽。");
-        window.location.href = "https://maps.app.goo.gl/YMkfuPDTutvSJMuFA"; // 或是導向其他地方
+        alert("本網站內容僅供 18 歲以上人士瀏覽！");
+        window.location.href = "https://maps.app.goo.gl/YMkfuPDTutvSJMuFA"; 
     });
 });
 
