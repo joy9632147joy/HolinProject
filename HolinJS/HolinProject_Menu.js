@@ -1,12 +1,43 @@
-// 1
-const category = [
+// 導覽列  監聽網頁滾動事件
+window.addEventListener('scroll', function () {
+    let navbar = document.querySelector('.navbar');
+    if (window.scrollY > 200) {
+        navbar.classList.add('scrolled'); 
+    } else {
+        navbar.classList.remove('scrolled'); 
+    }
+});
+
+
+
+// 至頂
+function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+function checkScroll() {
+    let myBtn = document.getElementById("myBtn");
+    if (document.documentElement.scrollTop > 600) {
+        myBtn.classList.add('visible');
+    } else {
+        myBtn.classList.remove('visible');
+    }
+}
+
+
+
+
+
+
+let category = [
     { id: "fried", label: "各式炸物" },
     { id: "pizza", label: "經典PIZZA" },
     { id: "dumpling", label: "冰花煎餃" },
 
 ]
 
-const food = [
+let food = [
 
     //--- 各式炸物 (id="fried") ---
     {
@@ -210,12 +241,11 @@ const food = [
 
 
 // 取得網頁上的容器
-const container = document.getElementById('food-container');
-// const titleElement = document.getElementById('display-title');
+let container = document.getElementById('food-container');
 
-// 1. 定義一個函式來產生 HTML (完全依照您的 class 結構)
+// 1. 定義函式產生HTML
 function renderFood(data) {
-    let htmlContent = '';
+    let  htmlContent = '';
 
     data.forEach(food => {
         htmlContent +=/*html*/ `
@@ -236,16 +266,16 @@ function renderFood(data) {
     `;
     });
 
-    // 把生成的 HTML 塞進容器裡
+    // 把生成的HTML放進去
     container.innerHTML = htmlContent;
 }
 
-// 2. 定義過濾函式 (修改後)
+// 2. 選的按鈕發亮
 function filterFood(category, btnElement) {
 
     if (btnElement) {
         // 1. 找到所有按鈕，移除 active
-        const buttons = document.querySelectorAll('.btn-custom');
+        let buttons = document.querySelectorAll('.btn-custom');
         buttons.forEach(btn => btn.classList.remove('active'));
 
         // 2. 幫被點擊的按鈕加上 active
@@ -253,48 +283,8 @@ function filterFood(category, btnElement) {
     }
 
     // 篩選資料
-    
-        const filtered = food.filter(food => food.category === category);
+        let filtered = food.filter(food => food.category === category);
         renderFood(filtered);
     
 }
 filterFood("fried");
-
-
-
-// 2
-// 監聽網頁滾動事件
-window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 200) { // 如果滾動超過 50px
-        navbar.classList.add('scrolled'); // 加上變色 class
-    } else {
-        navbar.classList.remove('scrolled'); // 變回透明
-    }
-});
-
-
-// 3
-// 1. 抓取按鈕元素
-let mybutton = document.getElementById("myBtn");
-
-// 2. 監聽網頁捲動事件 (當網頁捲動時執行 scrollFunction)
-window.onscroll = function () {
-    scrollFunction();
-};
-
-function scrollFunction() {
-    // 如果捲動超過 100px (document.body 是給 Safari 看的，documentElement 是給 Chrome/Firefox 看的)
-    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 600) {
-        mybutton.style.display = "block"; // 顯示按鈕
-    } else {
-        mybutton.style.display = "none";  // 隱藏按鈕
-    }
-}
-
-// 3. 監聽點擊事件 (點下去後回到頂端)
-mybutton.addEventListener("click", backToTop);
-
-function backToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}

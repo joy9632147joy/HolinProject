@@ -133,7 +133,7 @@ html {
 
 
 /* -----菜單 標題 + 菜卡----- */
-.subtitle-badge {
+.bright-word {
     background-color: rgba(197, 160, 89, 0.2);
     color: #C5A059;
     padding: 5px 15px;
@@ -278,7 +278,7 @@ html {
     transform: scale(1.05);
 }
 
-/* ----- 中間：社群 Icon 設定 ----- */
+/* ----- 右邊：社群 Icon 設定 ----- */
 .social-icons-group {
     display: flex;
     justify-content: center;
@@ -299,7 +299,7 @@ html {
     color: #e8c687;
 }
 
-/* --- 右邊：聯絡我們文字設定 --- */
+/* --- 中間：聯絡我們文字設定 --- */
 .footer-contact-list li {
     font-size: 1rem;
     color: #ccc;
@@ -310,12 +310,6 @@ html {
 @media (max-width: 768px) {
     .footer-logo {
         width: 160px;
-        /* 手機版 Logo 稍微縮小一點以免太擠 */
-    }
-
-    /* 在手機版讓聯絡資訊置中，而不是靠右 */
-    .text-md-end {
-        text-align: center !important;
     }
 }
 
@@ -330,8 +324,8 @@ html {
 
 /* 至頂箭頭 */
  #myBtn {
-     display: none;
-     /*負責第0秒隱藏 開始滾動就變成JS的判斷式*/
+     opacity: 0;
+     pointer-events: none;
      position: fixed;
      bottom: 80px;
      right: 30px;
@@ -343,6 +337,11 @@ html {
      border-radius: 10px;
      font-size: 18px;
  }
+
+ #myBtn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
 
  #myBtn:hover {
      background-color: #555;

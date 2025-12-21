@@ -25,13 +25,12 @@ a.navbar-brand {
     transition: transform 0.3s;
 }
 
-.weblogo:hover {
+.weblogo,
+.navbar-brand:hover {
     transform: scale(1.05);
 }
 
-a.navbar-brand:hover {
-    transform: scale(1.05);
-}
+
 
 
 /* -----漢堡----- */
@@ -79,7 +78,7 @@ ul.navBar li a {
         border-radius: 5px;
     }
 
-    /* 2. 讓選項變成直排 (block) */
+    /* 2. 讓選項變成直排 */
     ul.navBar li {
         display: block;
         width: 100%;
@@ -112,8 +111,6 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    /* border: 1px solid #C5A059; */
 }
 
 
@@ -123,7 +120,6 @@ html {
     position: absolute;
     top: 50%;
     left: 50%;
-    /* transform: translate(-50%, -50%); */
     z-index: 2;
     width: 800px;
     text-align: center;
@@ -159,7 +155,7 @@ html {
 
 
 /* 活動資訊標題+分類按鈕 */
-.subtitle-badge {
+.bright-word {
     background-color: rgba(197, 160, 89, 0.2);
     color: #C5A059;
     padding: 5px 15px;
@@ -194,8 +190,10 @@ html {
     border: 1px solid #C5A059;
     color: #C5A059;
     font-family: "Noto Serif TC", sans-serif;
-    padding: 10px 20px;
+    padding: 8px 20px;
     border-radius: 5px !important;
+    /* 用了BS5按鈕群組 只能這樣強制用圓角 不然就是不要群組 按鈕一個一個放 */
+    transition: all 0.3s ease;
 }
 
 
@@ -207,7 +205,8 @@ html {
     transform: translateY(-2px);
 }
 
-/* 主活動預約按鈕 */
+
+
 /* 立即預約按鈕樣式 */
 .btn-booking {
     background-color: transparent;
@@ -216,7 +215,6 @@ html {
     font-size: 0.9rem;
     padding: 15px 30px;
     white-space: nowrap;
-    /* 防止文字換行 */
     transition: all 0.3s ease;
 }
 
@@ -227,10 +225,10 @@ html {
 }
 
 
-/* 卡片亮光 */
+/* 卡片發亮 */
 #memory-content .row,
 #major-content .row {
-
+    /* 線性漸層 去看Tips筆記 */
     background: linear-gradient(135deg,
             rgba(30, 45, 50, 0.3) 0%,
             rgba(20, 30, 35, 0.5) 100%);
@@ -246,30 +244,26 @@ html {
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+
 #memory-content .row:hover,
 #major-content .row:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px #ebe0cc;
 }
 
-.badge.bg-secondary {
-    background-color: rgba(197, 160, 89, 0.9) !important;
-    /* 原本是灰色,改金色 */
+/* 歷史活動2024 5 標籤 */
+.badge {
+    background-color: rgba(197, 160, 89, 0.9);
     color: #23373E;
-    /* 文字改深色 */
     border-radius: 0;
-    /* 改直角 */
 }
 
+/* 重點項目 */
 .activity-info .fw-bold {
     background: rgba(197, 160, 89, 0.08);
-    /* 新增淡金背景 */
     border-left: 3px solid #C5A059;
-    /* 新增左側金條 */
     padding: 15px 20px;
-    /* 新增內邊距 */
     margin-top: 20px;
-    /* 新增上方距離 */
 }
 
 
@@ -287,85 +281,14 @@ html {
 
 @media (max-width: 768px) {
 
-    /* --- 歷年活動卡片:改為上下排列 --- */
-    #memory-content .row {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
-
-    #memory-content .col-lg-6 {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 !important;
-    }
-
-    /* 移除卡片內的 row gap,讓圖文緊密排列 */
-    #memory-content .event-card-wrapper .row {
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-    }
-
+    /* 後代選擇 記得空格 */
     /* 圖片區塊填滿寬度 */
     #memory-content .event-card-wrapper .col-5,
     #memory-content .event-card-wrapper .col-7 {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        flex: none !important;
-    }
-
-    /* 圖片容器調整 */
-    #memory-content .event-img-small {
-        width: 100%;
-        height: 250px;
-        margin-bottom: 15px;
-    }
-
-    /* 文字區塊內距調整 */
-    #memory-content .event-card-wrapper .col-7 {
-        padding: 0 15px 15px 15px !important;
-    }
-
-    /* --- 主打活動:改為上下排列 --- */
-    #major-content .row {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        padding: 20px !important;
-    }
-
-    #major-content .col-lg-5,
-    #major-content .col-lg-7 {
         width: 100%;
         max-width: 100%;
-        padding: 0 !important;
-    }
-
-    /* 主打活動圖片容器 */
-    #major-content .activity-img-wrapper {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    /* 主打活動文字區塊 */
-    #major-content .ps-lg-4 {
-        padding: 0 !important;
-    }
-
-    
-
-    /* 調整標題大小 */
-    #news-content h2 {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
     }
 }
-
-
-
-
 
 
 
@@ -387,8 +310,6 @@ html {
     height: 100%;
 }
 
-
-/* 確保每個 col 高度一致 */
 #memory-content .col-12 .col-lg-6 {
     display: flex;
 }
@@ -435,7 +356,7 @@ html {
     transform: scale(1.05);
 }
 
-/* ----- 中間：社群 Icon 設定 ----- */
+/* ----- 右邊：社群 Icon 設定 ----- */
 .social-icons-group {
     display: flex;
     justify-content: center;
@@ -456,25 +377,19 @@ html {
     color: #e8c687;
 }
 
-/* --- 右邊：聯絡我們文字設定 --- */
+/* --- 中間：聯絡我們文字設定 --- */
 .footer-contact-list li {
     font-size: 1rem;
     color: #ccc;
     line-height: 1.8;
 }
 
-/* 手機版適應 (當螢幕變窄時) */
 @media (max-width: 768px) {
     .footer-logo {
         width: 160px;
-        /* 手機版 Logo 稍微縮小一點以免太擠 */
-    }
-
-    /* 在手機版讓聯絡資訊置中，而不是靠右 */
-    .text-md-end {
-        text-align: center !important;
     }
 }
+
 
 .footer-warning {
     background-color: #000;
@@ -486,23 +401,28 @@ html {
 
 
 /* 至頂箭頭 */
-#myBtn {
-    display: none;
-    /*負責第0秒隱藏 開始滾動就變成JS的判斷式*/
-    position: fixed;
-    bottom: 80px;
-    right: 30px;
-    z-index: 99;
-    border: none;
-    background-color: rgba(35, 55, 62, 0.95);
-    color: #ebe0cc;
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 18px;
+ #myBtn {
+     opacity: 0;
+     pointer-events: none;
+     position: fixed;
+     bottom: 80px;
+     right: 30px;
+     z-index: 99;
+     border: none;
+     background-color: rgba(35, 55, 62, 0.95);
+     color: #ebe0cc;
+     padding: 15px;
+     border-radius: 10px;
+     font-size: 18px;
+ }
+
+ #myBtn.visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
-#myBtn:hover {
-    background-color: #555;
-    cursor: pointer;
-    transform: scale(1.1);
-}
+ #myBtn:hover {
+     background-color: #555;
+     cursor: pointer;
+     transform: scale(1.1);
+ }

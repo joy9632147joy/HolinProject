@@ -1,4 +1,35 @@
-const category = [
+// 導覽列  監聽網頁滾動事件
+window.addEventListener('scroll', function () {
+    let navbar = document.querySelector('.navbar');
+    if (window.scrollY > 200) {
+        navbar.classList.add('scrolled'); 
+    } else {
+        navbar.classList.remove('scrolled'); 
+    }
+});
+
+
+
+// 至頂
+function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+function checkScroll() {
+    let myBtn = document.getElementById("myBtn");
+    if (document.documentElement.scrollTop > 600) {
+        myBtn.classList.add('visible');
+    } else {
+        myBtn.classList.remove('visible');
+    }
+}
+
+
+
+
+
+let category = [
     { type: "national", label: "進口精釀啤酒" },
     { type: "domestic", label: "國產精釀啤酒" },
     { type: "rice", label: "小米氣泡酒" },
@@ -8,7 +39,7 @@ const category = [
 
 ]
 
-const products = [
+let products = [
     // --- 進口精釀啤酒 (對應 id="national") ---
     {
         id: "n-1",
@@ -157,7 +188,7 @@ const products = [
 
     // --- 國產精釀啤酒 (對應 id="domestic") ---
 
-   {
+    {
         id: "d-1",
         name: "紅心芭樂（野原廣志限定款）",
         category: "domestic",
@@ -185,7 +216,7 @@ const products = [
         image: "./productsImg/園長.png"
     },
     {
-        id: "d-4",
+        id: "d-8",
         name: "醜啤",
         category: "domestic",
         volume: "330ml",
@@ -195,6 +226,42 @@ const products = [
     },
     {
         id: "d-5",
+        name: "甜蜜蜜番茄梅古斯",
+        category: "domestic",
+        volume: "330ml",
+        abv: "5%",
+        price: 200,
+        image: "./productsImg/1-2.jpg"
+    }, 
+    {
+        id: "d-6",
+        name: "不朽西西里啤酒",
+        category: "domestic",
+        volume: "330ml",
+        abv: "5%",
+        price: 200,
+        image: "./productsImg/2-1.jpg"
+    },
+    {
+        id: "d-7",
+        name: "嫉妒巧克力斯陶特",
+        category: "domestic",
+        volume: "330ml",
+        abv: "5.5%",
+        price: 200,
+        image: "./productsImg/2-2.jpg"
+    },
+    {
+        id: "d-18",
+        name: "紅茶艾爾",
+        category: "domestic",
+        volume: "330ml",
+        abv: "5%",
+        price: 200,
+        image: "./productsImg/紅茶艾爾.jpg"
+    },
+    {
+        id: "d-9",
         name: "撥雲霧見蓬萊仙島",
         category: "domestic",
         volume: "330ml",
@@ -203,7 +270,7 @@ const products = [
         image: "./productsImg/撥雲見日.jpg"
     },
     {
-        id: "d-6",
+        id: "d-10",
         name: "怠惰社交型IPA",
         category: "domestic",
         volume: "330ml",
@@ -212,7 +279,7 @@ const products = [
         image: "./productsImg/lazy.jpg"
     },
     {
-        id: "d-7",
+        id: "d-11",
         name: "雙喜雙倍IPA啤酒",
         category: "domestic",
         volume: "330ml",
@@ -221,7 +288,7 @@ const products = [
         image: "./productsImg/雙喜.jpg"
     },
     {
-        id: "d-8",
+        id: "d-12",
         name: "傲慢檸檬海鹽拉格",
         category: "domestic",
         volume: "330ml",
@@ -230,7 +297,7 @@ const products = [
         image: "./productsImg/檸檬.jpg"
     },
     {
-        id: "d-9",
+        id: "d-13",
         name: "芭樂鹽小麥啤酒",
         category: "domestic",
         volume: "330ml",
@@ -239,7 +306,7 @@ const products = [
         image: "./productsImg/芭樂.jpg"
     },
     {
-        id: "d-10",
+        id: "d-14",
         name: "海灘貓貓",
         category: "domestic",
         volume: "330ml",
@@ -248,7 +315,7 @@ const products = [
         image: "./productsImg/IMG_4510.jpg"
     },
     {
-        id: "d-11",
+        id: "d-15",
         name: "琥珀拉格",
         category: "domestic",
         volume: "330ml",
@@ -257,7 +324,7 @@ const products = [
         image: "./productsImg/IMG_4503.jpg"
     },
     {
-        id: "d-12",
+        id: "d-16",
         name: "金荒烈愛爾",
         category: "domestic",
         volume: "330ml",
@@ -266,7 +333,7 @@ const products = [
         image: "./productsImg/IMG_4502.jpg"
     },
     {
-        id: "d-13",
+        id: "d-17",
         name: "蜜桃紅茶蘋果酒",
         category: "domestic",
         volume: "330ml",
@@ -275,14 +342,16 @@ const products = [
         image: "./productsImg/蜜桃.png"
     },
     {
-        id: "d-14",
-        name: "紅茶艾爾",
+        id: "d-4",
+        name: "暴食蜂蜜小麥",
         category: "domestic",
         volume: "330ml",
         abv: "5%",
         price: 200,
-        image: "./productsImg/紅茶艾爾.jpg"
-    },
+        image: "./productsImg/1-1.jpg"
+    }, 
+
+
 
 
 
@@ -495,11 +564,11 @@ const products = [
 ];
 
 // 取得網頁上的容器
-const container = document.getElementById('product-container');
-// const titleElement = document.getElementById('display-title');
+let container = document.getElementById('product-container');
+// let titleElement = document.getElementById('display-title');
 
 function renderProducts(data) {
-    let htmlContent = '';
+    let  htmlContent = '';
 
     data.forEach(product => {
         htmlContent +=/*html*/ `
@@ -520,16 +589,16 @@ function renderProducts(data) {
     `;
     });
 
-    // 把生成的 HTML 塞進容器裡
+    // 把生成的HTML放進去
     container.innerHTML = htmlContent;
 }
 
-// 2. 定義過濾函式 (修改後)
+// 2. 定義過濾函式
 function filterProducts(category, btnElement) {
 
     if (btnElement) {
         // 1. 找到所有按鈕，移除 active
-        const buttons = document.querySelectorAll('.btn-custom');
+        let buttons = document.querySelectorAll('.btn-custom');
         buttons.forEach(btn => btn.classList.remove('active'));
 
         // 2. 幫被點擊的按鈕加上 active
@@ -538,49 +607,9 @@ function filterProducts(category, btnElement) {
 
     // 篩選資料
 
-    const filtered = products.filter(item => item.category === category);
+    let filtered = products.filter(item => item.category === category);
     renderProducts(filtered);
 
 }
 filterProducts("national");
-
-
-
-
-
-// 監聽網頁滾動事件
-window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 200) {
-        navbar.classList.add('scrolled'); // 加上變數 class
-    } else {
-        navbar.classList.remove('scrolled'); // 變回透明
-    }
-});
-
-
-
-// 1. 抓取按鈕元素
-let mybutton = document.getElementById("myBtn");
-
-// 2. 監聽網頁捲動事件 (當網頁捲動時執行 scrollFunction)
-window.onscroll = function () {
-    scrollFunction();
-};
-
-function scrollFunction() {
-    // 如果捲動超過 100px (document.body 是給 Safari 看的，documentElement 是給 Chrome/Firefox 看的)
-    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 600) {
-        mybutton.style.display = "block"; // 顯示按鈕
-    } else {
-        mybutton.style.display = "none";  // 隱藏按鈕
-    }
-}
-
-// 3. 監聽點擊事件 (點下去後回到頂端)
-mybutton.addEventListener("click", backToTop);
-
-function backToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
 

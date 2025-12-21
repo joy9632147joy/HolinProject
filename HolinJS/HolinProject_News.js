@@ -1,10 +1,41 @@
+// 導覽列  監聽網頁滾動事件
+window.addEventListener('scroll', function () {
+    let navbar = document.querySelector('.navbar');
+    if (window.scrollY > 200) {
+        navbar.classList.add('scrolled'); 
+    } else {
+        navbar.classList.remove('scrolled'); 
+    }
+});
 
-const category = [
+
+
+// 至頂
+function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+function checkScroll() {
+    let myBtn = document.getElementById("myBtn");
+    if (document.documentElement.scrollTop > 600) {
+        myBtn.classList.add('visible');
+    } else {
+        myBtn.classList.remove('visible');
+    }
+}
+
+
+
+
+
+
+let category = [
     { id: "2025", label: "2025" },
     { id: "2024", label: "2024" }
 ]
 
-const newsData = [
+let newsData = [
     {
         title: "跨年電音派對",
         date: "2025-12-31",
@@ -180,30 +211,30 @@ const newsData = [
 
 document.addEventListener("DOMContentLoaded", function () {
     // 1. 取得當前年月
-    const now = new Date();
-    const currentYear = now.getFullYear();
-    const currentMonth = String(now.getMonth() + 1).padStart(2, '0'); // 01, 02, ..., 12
-    const currentYearMonth = `${currentYear}-${currentMonth}`; // 例如: "2025-12"
+    let now = new Date();
+    let currentYear = now.getFullYear();
+    let currentMonth = String(now.getMonth() + 1).padStart(2, '0'); 
+    let currentYearMonth = `${currentYear}-${currentMonth}`; 
 
-    // 2. 篩選出「當月」的活動
-    const currentMonthEvents = newsData.filter(event =>
+    // 2. 篩選當月活動
+    let currentMonthEvents = newsData.filter(event =>
         event.date.startsWith(currentYearMonth)
     );
 
-    // 3. 按日期排序（最新的在前）
+    // 3. 按日期排序(新的在前面)
     currentMonthEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    // 4. 渲染「本月主打活動」區塊
+    // 4. 本月活動
     renderFeaturedEvents(currentMonthEvents);
 
-    // 5. 預設載入 2025 年的精彩回顧
+    // 5. 預設2025的活動
     filterActivities("2025", document.querySelector(".btn-year"));
 });
 
 
-// 渲染本月主打活動
+// 本月活動
 function renderFeaturedEvents(events) {
-    const container = document.querySelector('.activity-major-section #major-content');
+    let container = document.querySelector('.activity-major-section #major-content');
 
     if (!container) return;
 
@@ -217,13 +248,13 @@ function renderFeaturedEvents(events) {
         return;
     }
 
-    let htmlContent = "";
+    let  htmlContent = "";
 
     events.forEach((event) => {
-        let guestHtml = event.guest ? /*html*/
+        let  guestHtml = event.guest ? /*html*/
             `<p class="mb-3"><strong style="font-size:larger; color:#C5A059">特別邀請：</strong>${event.guest}</p>` : '';
 
-        let contentHtml = event.content ? /*html*/
+        let  contentHtml = event.content ? /*html*/
             `<p class="mb-3 fw-bold" style="font-size:1.2rem; color:white; line-height:10px;">
                 <i class="bi bi-stars me-2" style="color:#C5A059;"></i>${event.content}
             </p>` : '';
@@ -277,27 +308,27 @@ function filterActivities(year, btnElement) {
     if (btnElement) btnElement.classList.add("Active");
 
     // 取得當前年月（用來排除本月活動）
-    const now = new Date();
-    const currentYearMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+    let now = new Date();
+    let currentYearMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
 
     // 篩選指定年份的活動，但排除「當月」的活動
-    const filterData = newsData.filter(event =>
+    let filterData = newsData.filter(event =>
         event.date.startsWith(year) && !event.date.startsWith(currentYearMonth)
     );
 
     filterData.sort((x, y) => new Date(y.date) - new Date(x.date));
 
-    let container = document.querySelector('.activity-section #memory-content');
-    let htmlContent = "";
+    let  container = document.querySelector('.activity-section #memory-content');
+    let  htmlContent = "";
 
     if (filterData.length === 0) {
         htmlContent = /*html*/`<div class="text-center text-white py-5"><h3>暫時沒有${year}年的回顧活動</h3></div>`;
     } else {
         filterData.forEach((event) => {
-            let guestHtml = event.guest ? /*html*/
+            let  guestHtml = event.guest ? /*html*/
                 `<p class="mb-3"><strong style="font-size:larger; color:#C5A059">特別邀請：</strong>${event.guest}</p>` : '';
 
-            let contentHtml = event.content ? /*html*/
+            let  contentHtml = event.content ? /*html*/
                 `<p class="mb-3 fw-bold" style="font-size:1.1rem; color:white;">
                     <i class="bi bi-stars me-2" ></i>${event.content}</p>` : '';
 
@@ -318,7 +349,7 @@ function filterActivities(year, btnElement) {
                     
                                 <!-- 右側文字 -->
                                 <div class="col-7">
-                                    <span class="badge bg-secondary mb-3">${event.date.substring(0, 4)} Events</span>
+                                    <span class="badge mb-3">${event.date.substring(0, 4)} Events</span>
                                     <h4 class="fw-bold mb-2" style="color:#C5A059;">${event.title}</h4>
                                     <div class="activity-info text-white">
                                         <p class="mb-2"><i class="bi bi-clock me-2" style="color:#C5A059"></i>${event.displayDate}</p>
@@ -338,51 +369,9 @@ function filterActivities(year, btnElement) {
     }
     container.innerHTML = htmlContent;
 
-    const cards = container.querySelectorAll('.col-12.col-lg-6');
+    let cards = container.querySelectorAll('.col-12.col-lg-6');
     if (cards.length % 2 === 1) {
         cards[cards.length - 1].style.marginRight = 'auto';
     }
 }
-
-
-
-
-
-// 監聽網頁滾動事件
-window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 200) { // 如果滾動超過 50px
-        navbar.classList.add('scrolled'); // 加上變色 class
-    } else {
-        navbar.classList.remove('scrolled'); // 變回透明
-    }
-});
-
-
-
-
-// 1. 抓取按鈕元素
-let mybutton = document.getElementById("myBtn");
-
-// 2. 監聽網頁捲動事件 (當網頁捲動時執行 scrollFunction)
-window.onscroll = function () {
-    scrollFunction();
-};
-
-function scrollFunction() {
-    // 如果捲動超過 100px (document.body 是給 Safari 看的，documentElement 是給 Chrome/Firefox 看的)
-    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 600) {
-        mybutton.style.display = "block"; // 顯示按鈕
-    } else {
-        mybutton.style.display = "none";  // 隱藏按鈕
-    }
-}
-
-// 3. 監聽點擊事件 (點下去後回到頂端)
-mybutton.addEventListener("click", backToTop);
-
-function backToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
 

@@ -18,7 +18,7 @@ CSS/BS
 12.overflow: hidden; 左上對左上容易留頭去尾 多餘地方直接隱藏
   -> object-fit:cover 現代做法 自動調到完美位子
 13.linear-gradient(...) 線性漸層
-14.transition: opacity 3s ease-in-out; 透明度 耗時 慢進入-中加速-慢結束 作互動不要瞬間出現的觀念
+14.transform: translate(-50%, -50%); 把自己往左移動自身寬度的 50%，往上移動自身高度的 50%
 15.backquote 自動給文字左右縮排
 16.position: fixed 要指定定位(箭頭保持頁面下方等等)要寫他 不然bottom.right都會在靜態中不受控
 17.opacity 不透明的
@@ -45,7 +45,16 @@ CSS/BS
 
 31.CTA(Call To Action) 行動呼籲
 32.添加裝飾的線記得 position: absolute 才有用
-33.transform: translate(-50%, -50%);
+33.transition: all 0.3s ease 
+  ->針對對象全包 (all)：寬度、高度、顏色、透明度變了全都有動畫。
+  ->00.3 秒：非常快，適合按鈕、滑鼠移過去的反應。
+  ->ease：起步慢 → 中間快 → 結尾慢 (最常用，比較自然)
+
+  transition: opacity 3s ease-in-out
+  ->只管透明度 (opacity)：只有變透明/不透明時有動畫，變寬度會瞬間跳過去。
+  ->3秒：非常慢，適合像電影一樣慢慢淡入淡出的氣氛。
+  ->ease-in-out：起步慢 → 中間快 → 結尾慢 (頭尾對稱，比 ease 更柔和)。
+34.css(grid) 與 bs(col) 比較
 
 
 

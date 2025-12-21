@@ -14,12 +14,11 @@
     <script src="js/bootstrap.bundle.js"></script>
 
     <!-- 設定繁體中文字體 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto Serif TC, sans-serif+XiaoWei&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
 
-<body>
+<body onscroll="checkScroll()">
 
     <!-- 是否滿18 -->
     <div id="age-modal" class="age-modal">
@@ -89,14 +88,13 @@
 
 
     <!-- 背景圖 -->
-
     <div class="video-container">
         <video autoplay muted loop playsinline class="back-video">
             <source src="./Video/beerBG4.0.mp4" type="video/mp4">
             您的瀏覽器不支援 HTML5 影片。
         </video>
-        <!-- <div class="video-overlay"></div> -->
     </div>
+
 
     <div class="bg-text">
         <h1 style="font-size: 40px;">以精釀的層次，細讀生活的韻味。</h1>
@@ -197,7 +195,6 @@
                 </div>
             </div>
         </div>
-        <br>
     </section>
 
 
@@ -269,7 +266,6 @@
                                 閱讀完整文章 <i class="bi bi-arrow-right ms-1"></i>
                             </a>
 
-
                         </div>
                     </div>
                 </div>
@@ -278,9 +274,6 @@
         </div>
     </section>
 
-
-
-    <button onclick="topFunction()" id="myBtn" title="btn-back-to-top">Top</button>
 
 
     <!-- 底部為聯絡資訊 -->

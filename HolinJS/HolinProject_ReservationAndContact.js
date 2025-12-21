@@ -1,40 +1,58 @@
-
-// 監聽網頁滾動事件
+// 導覽列  監聽網頁滾動事件
 window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 200) { // 如果滾動超過 50px
-        navbar.classList.add('scrolled'); // 加上變色 class
+    let navbar = document.querySelector('.navbar');
+    if (window.scrollY > 200) {
+        navbar.classList.add('scrolled'); 
     } else {
-        navbar.classList.remove('scrolled'); // 變回透明
+        navbar.classList.remove('scrolled'); 
     }
 });
+
+
+
+// 至頂
+function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+function checkScroll() {
+    let myBtn = document.getElementById("myBtn");
+    if (document.documentElement.scrollTop > 600) {
+        myBtn.classList.add('visible');
+    } else {
+        myBtn.classList.remove('visible');
+    }
+}
+
+
 
 
 // GoogleSheet:https://docs.google.com/spreadsheets/d/1dsH6dm14FNQr_Zunbb4hzCurRJinKivTUIWZjyyvI6Q/edit?gid=0#gid=0
 // 已發布 https://docs.google.com/spreadsheets/d/e/2PACX-1vTR3ZPMfAzyzkaPrx-MCucDjc40KOmddFCuuzTNQqujzHhUHaIiHe2hP5mpRwvS0KDHlaYGRLrmj-Z3/pubhtml
 
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxX8_UoeL2xF_PmQ9NhMe9MnztmWInTl3KPzaPSZHJUFHdEbUP9xms_fMhqFBffgO-3ZA/exec';
+let GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxX8_UoeL2xF_PmQ9NhMe9MnztmWInTl3KPzaPSZHJUFHdEbUP9xms_fMhqFBffgO-3ZA/exec';
 // 取得按鈕並監聽點擊事件
-const submitBtn = document.getElementById('submitBtn');
+let submitBtn = document.getElementById('submitBtn');
 
 submitBtn.addEventListener('click', async function (e) {
     e.preventDefault();
     // 1. 抓取欄位資料
-    const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+    let name = document.getElementById('name').value.trim();
+    let phone = document.getElementById('phone').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let message = document.getElementById('message').value.trim();
 
     // 2. 簡單驗證 (可選)
     if (name === '' || phone === '' || message === '') {
-        alert('請填寫姓名、手機與內容！');
+        alert('請填寫姓名、手機與需求！');
         return;
     }
 
 
     // 3. 建立一個物件 (Object)
-    const formData = {
+    let formData = {
         timestampTW: new Date().toLocaleString(),
         name: name,
         phone: phone,
@@ -45,7 +63,7 @@ submitBtn.addEventListener('click', async function (e) {
 
     // 4. 模擬資料庫操作
     // 先從 LocalStorage 拿出舊資料 (如果沒有就是空陣列)
-    // let database = JSON.parse(localStorage.getItem('contact_db')) || [];
+    // let  database = JSON.parse(localStorage.getItem('contact_db')) || [];
 
     // 把新資料推進去
     // database.push(formData);
@@ -54,12 +72,14 @@ submitBtn.addEventListener('click', async function (e) {
     // localStorage.setItem('contact_db', JSON.stringify(database));
 
 
+
+    // 需再次詳讀的地方 關於兩個地方做關聯
     submitBtn.disabled = true;
     submitBtn.value = '送出中...';
 
     try {
         // 5. 發送到 Google Sheets
-        const response = await fetch(GOOGLE_SCRIPT_URL, {
+        let response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors', // 重要：Google Apps Script 需要用 no-cors
             headers: {
@@ -90,26 +110,3 @@ submitBtn.addEventListener('click', async function (e) {
 });
 
 
-// 1. 抓取按鈕元素
-let mybutton = document.getElementById("myBtn");
-
-// 2. 監聽網頁捲動事件 (當網頁捲動時執行 scrollFunction)
-window.onscroll = function () {
-    scrollFunction();
-};
-
-function scrollFunction() {
-    // 如果捲動超過 100px (document.body 是給 Safari 看的，documentElement 是給 Chrome/Firefox 看的)
-    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 600) {
-        mybutton.style.display = "block"; // 顯示按鈕
-    } else {
-        mybutton.style.display = "none";  // 隱藏按鈕
-    }
-}
-
-// 3. 監聽點擊事件 (點下去後回到頂端)
-mybutton.addEventListener("click", backToTop);
-
-function backToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
