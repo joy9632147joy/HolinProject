@@ -217,7 +217,6 @@ html {
 }
 
 .custom-input:invalid:not(:placeholder-shown){
-    background-color: #fff2f2;
     border: 1px solid #fd646e;
     box-shadow: none;
 }
