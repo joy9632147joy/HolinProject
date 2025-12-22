@@ -45,11 +45,17 @@ submitBtn.addEventListener('click', async function (e) {
     let message = document.getElementById('message').value.trim();
 
     // 2. 簡單驗證 (可選)
-    if (name === '' || phone === '' || message === '') {
-        alert('請填寫姓名、手機與需求！');
+    // if (name === '' || phone === '' || message === '') {
+    //     alert('請填寫姓名、手機與需求！');
+    //     return;
+    // }
+
+    let form=e.target.closest("form");
+
+    if(!form.checkValidity()){
+        form.reportValidity();
         return;
     }
-
 
     // 3. 建立一個物件 (Object)
     let formData = {
