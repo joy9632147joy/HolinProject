@@ -249,7 +249,7 @@ function renderFood(data) {
 
     data.forEach(food => {
         htmlContent +=/*html*/ `
-        <div class="col-md-4 col-md-6 col-lg-4">
+        <div class=" col-md-6 col-lg-4">
           <div class="food-card shadow-sm">
               <div class="food-box">
                   <img src="${food.image}" alt="${food.name}">

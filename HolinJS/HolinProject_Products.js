@@ -50,15 +50,15 @@ let products = [
         price: 180,
         image: "./productsImg/IMG_4645.jpg"
     },
-    {
-        id: "n-2",
-        name: "迷迷麻麻大波啾",
-        category: "national",
-        volume: "568ml",
-        abv: "9%",
-        price: 300,
-        image: "./productsImg/IMG_4609.jpg"
-    },
+    // {
+    //     id: "n-2",
+    //     name: "迷迷麻麻大波啾",
+    //     category: "national",
+    //     volume: "568ml",
+    //     abv: "9%",
+    //     price: 300,
+    //     image: "./productsImg/IMG_4609.jpg"
+    // },
     {
         id: " n-3",
         name: "泡泡-雪酪酸啤酒",
@@ -195,7 +195,7 @@ let products = [
         volume: "330ml",
         abv: "3.5%",
         price: 180,
-        image: "./productsImg/廣智.png"
+        image: "./productsImg/13.jpg"
     },
     {
         id: "d-2",
@@ -204,7 +204,7 @@ let products = [
         volume: "330ml",
         abv: "3.5%",
         price: 180,
-        image: "./productsImg/美芽.png"
+        image: "./productsImg/14.jpg"
     },
     {
         id: "d-3",
@@ -213,7 +213,7 @@ let products = [
         volume: "330ml",
         abv: "3.5%",
         price: 180,
-        image: "./productsImg/園長.png"
+        image: "./productsImg/13.jpg"
     },
     {
         id: "d-8",
@@ -222,7 +222,7 @@ let products = [
         volume: "330ml",
         abv: "4.5%",
         price: 160,
-        image: "./productsImg/醜啤.jpg"
+        image: "./productsImg/12.jpg"
     },
     {
         id: "d-5",
@@ -240,7 +240,7 @@ let products = [
         volume: "330ml",
         abv: "5%",
         price: 200,
-        image: "./productsImg/2-1.jpg"
+        image: "./productsImg/2-10.jpg"
     },
     {
         id: "d-7",
@@ -258,7 +258,7 @@ let products = [
         volume: "330ml",
         abv: "5%",
         price: 200,
-        image: "./productsImg/紅茶艾爾.jpg"
+        image: "./productsImg/2-9.jpg"
     },
     {
         id: "d-9",
@@ -267,7 +267,7 @@ let products = [
         volume: "330ml",
         abv: "6.5%",
         price: 200,
-        image: "./productsImg/撥雲見日.jpg"
+        image: "./productsImg/99.jpg"
     },
     {
         id: "d-10",
@@ -285,7 +285,7 @@ let products = [
         volume: "330ml",
         abv: "8.8%",
         price: 210,
-        image: "./productsImg/雙喜.jpg"
+        image: "./productsImg/96.jpg"
     },
     {
         id: "d-12",
@@ -294,7 +294,7 @@ let products = [
         volume: "330ml",
         abv: "5%",
         price: 250,
-        image: "./productsImg/檸檬.jpg"
+        image: "./productsImg/95.jpg"
     },
     {
         id: "d-13",
@@ -303,7 +303,7 @@ let products = [
         volume: "330ml",
         abv: "5.2%",
         price: 180,
-        image: "./productsImg/芭樂.jpg"
+        image: "./productsImg/98.jpg"
     },
     {
         id: "d-14",
